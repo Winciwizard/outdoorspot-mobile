@@ -6,13 +6,19 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>flux</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Accueil</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-grid *ngIf="posts">
+    <ion-row>
+      <ion-col col-4 *ngFor="let post of posts">
+        <img [src]="post.file" (click)="goToDetail(post)" />
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
