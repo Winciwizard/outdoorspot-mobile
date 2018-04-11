@@ -7,12 +7,20 @@
 <ion-header>
 
   <ion-navbar color="dark">
-    <ion-title>Caca</ion-title>
+    <ion-title *ngIf="post">{{ post.place }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-grid *ngIf="post">
+    <ion-row>
+      <ion-col col-12>
+        <p>{{post.user_id}}</p>
+        <img [src]="post.file" />
+        <h5>{{post.description}}</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

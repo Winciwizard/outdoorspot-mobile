@@ -33,7 +33,7 @@ export class FluxPage {
     });
   }
 
-  goToDetail(post: any) {
+  goToDetail(post) {
     this.navCtrl.push(SpotPage, post);
   }
 
