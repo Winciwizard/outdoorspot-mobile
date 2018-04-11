@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "created_at": "2018-03-21 13:45:35",
+    "updated_at": "2018-03-21 13:45:35",
+    "place": "Annecy",
+    "description": "La petite Venise des Alpes",
+    "latitude": 45.9,
+    "longitude": 6.14,
+    "user_id": 1,
+    "file": "https://www.rallyetribe.fr/storage/cover/fe38bc8bd4efa0e2ece99583a4691c5d.jpg"
+  },
+  {
+    "id": 2,
+    "created_at": "2018-03-22 12:38:10",
+    "updated_at": "2018-03-22 12:39:20",
+    "place": "Reykjavik",
+    "description": "Un lieu perdu au milieu de nul part et entouré de roches",
+    "latitude": 64.15,
+    "longitude": -21.95,
+    "user_id": 3,
+    "file": "https://www.rallyetribe.fr/storage/cover/e82c6b827aaf2549bfbf21e74494a3de.jpg"
+  },
+  {
+    "id": 3,
+    "created_at": "2018-03-22 13:28:10",
+    "updated_at": "2018-03-22 13:28:10",
+    "place": "Canada",
+    "description": "De magnifiques aurores boréales",
+    "latitude": 56.13,
+    "longitude": -106.35,
+    "user_id": 3,
+    "file": "https://www.rallyetribe.fr/storage/cover/41362bf53f27278fdd8ce19c0813d35b.jpg"
+  },
+  {
+    "id": 4,
+    "created_at": "2018-03-23 15:14:43",
+    "updated_at": "2018-03-23 15:14:59",
+    "place": "Marseille",
+    "description": "Les rues de mareilles pleines de laines",
+    "latitude": 43.26,
+    "longitude": 5.38,
+    "user_id": 1,
+    "file": "https://www.rallyetribe.fr/storage/cover/8a408474ef599f3e8d5296444d3f420f.jpg"
+  },
+  {
+    "id": 5,
+    "created_at": "2018-03-23 15:51:14",
+    "updated_at": "2018-03-23 15:51:14",
+    "place": "Chamonix",
+    "description": "Le toit de l’Europe",
+    "latitude": 46.35,
+    "longitude": -72.61,
+    "user_id": 1,
+    "file": "https://www.rallyetribe.fr/storage/cover/28b68e5247ebc41449afac3c85b269ec.jpg"
+  }
+]
