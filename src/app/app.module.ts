@@ -10,12 +10,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {FluxPage} from "../pages/flux/flux";
 import {HttpClientModule} from "@angular/common/http";
 import { PostApiProvider } from '../providers/post-api/post-api';
+import {SpotPage} from "../pages/spot/spot";
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
-    FluxPage
+    FluxPage,
+    SpotPage
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { PostApiProvider } from '../providers/post-api/post-api';
   entryComponents: [
     MyApp,
     TabsPage,
-    FluxPage
+    FluxPage,
+    SpotPage
   ],
   providers: [
     StatusBar,
