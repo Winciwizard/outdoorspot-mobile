@@ -21,7 +21,7 @@ export class UserApiProvider {
                 private readonly platform: Platform) {
     console.log('Hello UserApiProvider Provider');
     if (this.platform.is("cordova") && this.platform.is("android")) {
-      this.baseUrl = "/android_asset/www/assets/api/movies.json";
+      this.baseUrl = "/android_asset/www/assets/api/users.json";
     }
   }
     getUsers(): Observable<any> {
