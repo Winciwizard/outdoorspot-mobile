@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {PostApiProvider} from "../../providers/post-api/post-api";
+import {MovieDetailPage} from "../../../../TUTO1/movie-app/src/pages/movie-detail/movie-detail";
+import {SpotPage} from "../spot/spot";
 
 /**
  * Generated class for the FluxPage page.
@@ -14,12 +17,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'flux.html',
 })
 export class FluxPage {
+  posts = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private postApiProvider: PostApiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FluxPage');
+    this.postApiProvider.getPosts().subscribe(data => {
+      this.posts = data;
+    });
+  }
+
+  goToDetail(post) {
+    this.navCtrl.push(SpotPage, post);
   }
 
 }

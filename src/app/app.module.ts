@@ -3,25 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 import {LoginPageModule} from "../pages/login/login.module";
 import {ProfilPageModule} from "../pages/profil/profil.module";
 import { UserApiProvider } from '../providers/user-api/user-api';
-import { HttpClientModule } from '@angular/common/http';
+import {FluxPage} from "../pages/flux/flux";
+import {HttpClientModule} from "@angular/common/http";
+import { PostApiProvider } from '../providers/post-api/post-api';
+import {SpotPage} from "../pages/spot/spot";
+
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    FluxPage,
+    SpotPage
   ],
   imports: [
     BrowserModule,
@@ -29,20 +30,22 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(MyApp),
     LoginPageModule,
     ProfilPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    FluxPage,
+    SpotPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserApiProvider
+    UserApiProvider,
+    PostApiProvider
+
   ]
 })
 export class AppModule {}
