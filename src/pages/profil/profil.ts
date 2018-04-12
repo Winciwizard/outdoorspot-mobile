@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {UserApiProvider} from "../../providers/user-api/user-api";
 
 /**
  * Generated class for the ProfilPage page.
@@ -15,11 +16,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user  = [];
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private userApiProvider: UserApiProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilPage');
+    this.userApiProvider.getUsers().subscribe(data =>{
+      this.user = data[1];
+    })
   }
+
+
 
 }

@@ -7,10 +7,15 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+import {LoginPageModule} from "../pages/login/login.module";
+import {ProfilPageModule} from "../pages/profil/profil.module";
+import { UserApiProvider } from '../providers/user-api/user-api';
 import {FluxPage} from "../pages/flux/flux";
 import {HttpClientModule} from "@angular/common/http";
 import { PostApiProvider } from '../providers/post-api/post-api';
 import {SpotPage} from "../pages/spot/spot";
+
 
 @NgModule({
   declarations: [
@@ -21,8 +26,11 @@ import {SpotPage} from "../pages/spot/spot";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    LoginPageModule,
+    ProfilPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -35,7 +43,9 @@ import {SpotPage} from "../pages/spot/spot";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserApiProvider,
     PostApiProvider
+
   ]
 })
 export class AppModule {}
