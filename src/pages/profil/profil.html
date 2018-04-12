@@ -59,21 +59,32 @@
 <ion-nav id="nav" #content [root]="tab5Root"></ion-nav>
 
 
+<ion-content padding>
 
-<ion-content padding *ngIf="user">
 
-       <h2>{{user.userName}}  </h2>
 
-  <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.lieu}}</ion-icon>
+      <ion-item >
 
-  <ion-item >
-  <ion-avatar  *ngIf="user" >
 
-    <img   [src]="user.image_profil" />
+          <img  [src]="user.image_profil"   item-right id="avatar"   >
 
-  </ion-avatar>
-</ion-item>
+
+
+
+          <h1 *ngIf="user">{{user.userName}}  </h1>
+
+        <br>
+
+          <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.lieu}}</ion-icon>
+
+
+      </ion-item>
+
+  <ion-item id="mes-spots"></ion-item>
+
 
 
 </ion-content>
+
+
 
