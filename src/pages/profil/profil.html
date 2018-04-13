@@ -66,16 +66,16 @@
       <ion-item >
 
 
-          <img  [src]="user.image_profil"   item-right id="avatar"   >
+          <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right id="avatar"   >
 
 
 
 
-          <h1 *ngIf="user">{{user.userName}}  </h1>
+          <h1 *ngIf="user">{{user.pseudo}}  </h1>
 
         <br>
 
-          <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.lieu}}</ion-icon>
+          <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.id}}</ion-icon>
 
 
       </ion-item>

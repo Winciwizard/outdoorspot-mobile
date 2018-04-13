@@ -13,7 +13,7 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class UserApiProvider {
 
-  private  baseUrl: string = "../../assets/api/users.json";
+  private  baseUrl: string = "https://proxy.apidae.net/www.rallyetribe.fr/api/users";
 
   users: any [];
 
