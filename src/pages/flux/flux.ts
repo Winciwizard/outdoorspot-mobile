@@ -22,13 +22,13 @@ export class FluxPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private postApiProvider: PostApiProvider) {
-  }
+    private postApiProvider: PostApiProvider
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FluxPage');
     this.postApiProvider.getPosts().subscribe(data => {
-      this.posts = data;
+      this.posts = data['data'];
     });
   }
 

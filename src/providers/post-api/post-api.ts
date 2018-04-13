@@ -11,7 +11,7 @@ import {Observable} from "rxjs/Observable";
 */
 @Injectable()
 export class PostApiProvider {
-  private baseUrl: string = "../../assets/api/posts.json";
+  private baseUrl: string = "https://proxy.apidae.net/www.rallyetribe.fr/api/posts";
 
   posts: any[];
 
