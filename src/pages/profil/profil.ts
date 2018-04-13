@@ -25,7 +25,7 @@ export class ProfilPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilPage');
     this.userApiProvider.getUsers().subscribe(data =>{
-      this.user = data[1];
+      this.user = data['data'][7];
     })
   }
 
