@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {PostApiProvider} from "../../providers/post-api/post-api";
 import {SpotPage} from "../spot/spot";
+import {Storage} from "@ionic/storage";
+import {LoginPage} from "../login/login";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the FluxPage page.
@@ -22,7 +25,8 @@ export class FluxPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private postApiProvider: PostApiProvider
+    private postApiProvider: PostApiProvider,
+    private storage: Storage
   ) {}
 
   ionViewDidLoad() {
@@ -34,6 +38,13 @@ export class FluxPage {
 
   goToDetail(post) {
     this.navCtrl.push(SpotPage, post);
+  }
+
+  goLogout(){
+    this.storage.set('user_id',null).then((val) => {
+      console.log(val);
+      this.navCtrl.setRoot(LoginPage);
+    })
   }
 
 }

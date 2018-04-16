@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Storage} from "@ionic/storage";
 import {UserApiProvider} from "../../providers/user-api/user-api";
 import {FluxPage} from "../flux/flux";
+import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the LoginPage page.
@@ -46,8 +47,7 @@ export class LoginPage {
     this.storage.set('user_id',this.idUser).then((val) => {
       console.log(val);
     })
-
-    this.navCtrl.pop();
+    this.navCtrl.setRoot(TabsPage);
   }
 
 }
