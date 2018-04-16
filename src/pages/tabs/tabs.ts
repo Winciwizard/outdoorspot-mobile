@@ -18,9 +18,9 @@ export class TabsPage {
 
   tab1Root = FluxPage;
   tab2Root = ContactPage;
-  tab3Root = SearchPage;
-  tab4Root = ProfilPage;
-  tab5Root = SharePage;
+  tab3Root = SharePage;
+  tab4Root = SearchPage;
+  tab5Root = ProfilPage;
 
 
   constructor(
