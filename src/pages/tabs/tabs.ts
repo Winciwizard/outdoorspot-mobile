@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
 import {LoginPage} from "../login/login";
 import {ProfilPage} from "../profil/profil";
-import {SharePage} from "../share/share";
 import {FluxPage} from "../flux/flux";
+import {Storage} from "@ionic/storage";
+import {NavController, NavParams} from "ionic-angular";
 
 @Component({
   templateUrl: 'tabs.html'
@@ -19,7 +19,20 @@ export class TabsPage {
   tab4Root = LoginPage;
   tab5Root = ProfilPage;
 
-  constructor() {
+  constructor(
+    public navCtlr: NavController,
+    public navParams: NavParams,
+    private storage: Storage)
+  {}
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Tabs');
+    this.storage.get('user_id').then((val) => {
+      if(val == null){
+        this.navCtlr.push(LoginPage);
+      }
+    })
   }
+
 }
+
