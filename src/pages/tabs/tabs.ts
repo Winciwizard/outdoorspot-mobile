@@ -6,6 +6,8 @@ import {ProfilPage} from "../profil/profil";
 import {FluxPage} from "../flux/flux";
 import {Storage} from "@ionic/storage";
 import {NavController, NavParams} from "ionic-angular";
+import {SearchPage} from "../search/search";
+import {SharePage} from "../share/share";
 
 @Component({
   templateUrl: 'tabs.html'
@@ -14,10 +16,10 @@ export class TabsPage {
 
 
   tab1Root = FluxPage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-  tab4Root = LoginPage;
-  tab5Root = ProfilPage;
+  tab2Root = ContactPage;
+  tab3Root = SearchPage;
+  tab4Root = ProfilPage;
+  tab5Root = SharePage;
 
   constructor(
     public navCtlr: NavController,
@@ -29,7 +31,7 @@ export class TabsPage {
     console.log('ionViewDidLoad Tabs');
     this.storage.get('user_id').then((val) => {
       if(val == null){
-        this.navCtlr.push(LoginPage);
+        this.navCtlr.setRoot(LoginPage);
       }
     })
   }
