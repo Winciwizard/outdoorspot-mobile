@@ -27,4 +27,8 @@ export class UserApiProvider {
     getUsers(): Observable<any> {
       return this.http.get(`${this.baseUrl}`);
     }
+
+    getUser(id): Observable<any> {
+      return this.http.get(`${this.baseUrl}`+'/'+id);
+    }
 }
