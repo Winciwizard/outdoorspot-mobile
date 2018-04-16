@@ -9,6 +9,7 @@ import {NavController, NavParams} from "ionic-angular";
 import {SearchPage} from "../search/search";
 import {SharePage} from "../share/share";
 
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -20,6 +21,7 @@ export class TabsPage {
   tab3Root = SearchPage;
   tab4Root = ProfilPage;
   tab5Root = SharePage;
+
 
   constructor(
     public navCtlr: NavController,

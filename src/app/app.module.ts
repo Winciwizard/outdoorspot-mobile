@@ -15,7 +15,11 @@ import {FluxPage} from "../pages/flux/flux";
 import {HttpClientModule} from "@angular/common/http";
 import { PostApiProvider } from '../providers/post-api/post-api';
 import {SpotPage} from "../pages/spot/spot";
+
+import {SearchPage} from "../pages/search/search";
+import {UserProfilPage} from "../pages/user-profil/user-profil";
 import {IonicStorageModule} from "@ionic/storage";
+
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import {IonicStorageModule} from "@ionic/storage";
     MyApp,
     TabsPage,
     FluxPage,
-    SpotPage
+    SpotPage,
+    SearchPage,
+    UserProfilPage
   ],
   imports: [
     BrowserModule,
@@ -33,13 +39,16 @@ import {IonicStorageModule} from "@ionic/storage";
     LoginPageModule,
     ProfilPageModule
 
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     TabsPage,
     FluxPage,
-    SpotPage
+    SpotPage,
+    SearchPage,
+    UserProfilPage
   ],
   providers: [
     StatusBar,
