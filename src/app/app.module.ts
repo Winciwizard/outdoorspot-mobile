@@ -15,8 +15,11 @@ import {FluxPage} from "../pages/flux/flux";
 import {HttpClientModule} from "@angular/common/http";
 import { PostApiProvider } from '../providers/post-api/post-api';
 import {SpotPage} from "../pages/spot/spot";
+
 import {SearchPage} from "../pages/search/search";
 import {UserProfilPage} from "../pages/user-profil/user-profil";
+import {IonicStorageModule} from "@ionic/storage";
+
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import {UserProfilPage} from "../pages/user-profil/user-profil";
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     LoginPageModule,
     ProfilPageModule
 
