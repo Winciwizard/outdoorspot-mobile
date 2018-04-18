@@ -20,9 +20,9 @@ export class UserApiProvider {
   constructor(  private readonly http: HttpClient,
                 private readonly platform: Platform) {
     console.log('Hello UserApiProvider Provider');
-    if (this.platform.is("cordova") && this.platform.is("android")) {
-      this.baseUrl = "/android_asset/www/assets/api/users.json";
-    }
+    // if (this.platform.is("cordova") && this.platform.is("android")) {
+    //   this.baseUrl = "/android_asset/www/assets/api/users.json";
+    // }
   }
     getUsers(): Observable<any> {
       return this.http.get(`${this.baseUrl}`);

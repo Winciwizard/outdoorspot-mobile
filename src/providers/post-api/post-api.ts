@@ -20,9 +20,9 @@ export class PostApiProvider {
     private readonly platform: Platform,
     ) {
     console.log('Hello PostApiProvider Provider');
-    if (this.platform.is("cordova") && this.platform.is("android")) {
-      this.baseUrl = "/android_asset/www/assets/api/posts.json";
-    }
+    // if (this.platform.is("cordova") && this.platform.is("android")) {
+    //   this.baseUrl = "/android_asset/www/assets/api/posts.json";
+    // }
   }
 
   getPosts(): Observable<any> {
