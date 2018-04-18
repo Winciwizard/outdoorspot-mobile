@@ -10,6 +10,7 @@ import {SharePage} from "../share/share";
 import {UserApiProvider} from "../../providers/user-api/user-api";
 
 
+
 @Component({
   templateUrl: 'tabs.html'
 })
