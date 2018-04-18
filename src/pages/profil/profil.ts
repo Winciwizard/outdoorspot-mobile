@@ -4,6 +4,7 @@ import {UserApiProvider} from "../../providers/user-api/user-api";
 import {Storage} from "@ionic/storage";
 import {PostApiProvider} from "../../providers/post-api/post-api";
 import {SpotPage} from "../spot/spot";
+import {FriendApiProvider} from "../../providers/friend-api/friend-api";
 
 /**
  * Generated class for the ProfilPage page.
@@ -27,10 +28,10 @@ export class ProfilPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private userApiProvider: UserApiProvider,
+
               private postApiProvider: PostApiProvider,
               private storage: Storage
-  ) {
-  }
+  ) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilPage');
@@ -38,6 +39,7 @@ export class ProfilPage {
 
 
     this.storage.get('user_id').then((val) => {
+
       this.idUser = val;
       this.userApiProvider.getUser(val).subscribe(data =>{
         this.user = data['data'];
@@ -49,6 +51,7 @@ export class ProfilPage {
         this.myPost = this.posts.filter((post) => {
           return (post.user_id === this.idUser)
         })
+
       })
     })
   }
@@ -61,3 +64,10 @@ export class ProfilPage {
 
 
 }
+
+
+
+
+
+
+
