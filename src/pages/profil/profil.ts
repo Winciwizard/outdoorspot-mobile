@@ -55,7 +55,7 @@ export class ProfilPage {
       })
     })
   }
-
++
   goToDetail(post) {
     this.navCtrl.push(SpotPage, post);
   }
