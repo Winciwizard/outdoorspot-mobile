@@ -43,7 +43,6 @@ export class SearchPage {
   }
 
 
-
   getUser(ev: any){
     this.initializeUsers();
     this.users = this.userslist;

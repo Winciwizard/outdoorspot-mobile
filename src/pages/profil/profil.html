@@ -62,13 +62,10 @@
 <ion-content >
 
 
-
       <ion-item >
 
 
           <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right id="avatar"   >
-
-
 
 
           <h1 *ngIf="user">{{user.prenom}} {{user.nom}}  </h1>
@@ -76,7 +73,7 @@
         <br>
 
           <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.id}}</ion-icon>
-
+        <h1 *ngIf="user">{{user.pseudo}}  </h1>
 
       </ion-item>
 <br>
@@ -106,6 +103,18 @@
     <h2 *ngIf="user">Mes Derniers Posts</h2>
   </ion-item>
 
+
+
+  <ion-item id="mes-spots">
+    <ion-grid *ngIf="myPost">
+      <ion-title>Last Post :</ion-title>
+      <ion-row>
+        <ion-col col-4 *ngFor="let post of myPost">
+          <img [src]="'https://www.rallyetribe.fr/storage/' + post.file" (click)="goToDetail(post)" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
 
 </ion-content>
