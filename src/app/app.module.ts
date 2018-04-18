@@ -21,7 +21,6 @@ import {UserProfilPage} from "../pages/user-profil/user-profil";
 import {IonicStorageModule} from "@ionic/storage";
 import { FriendApiProvider } from '../providers/friend-api/friend-api';
 import {ContactPage} from "../pages/contact/contact";
-import {Camera} from "@ionic-native/camera";
 
 
 
@@ -61,8 +60,7 @@ import {Camera} from "@ionic-native/camera";
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserApiProvider,
     PostApiProvider,
-    FriendApiProvider,
-    Camera
+    FriendApiProvider
 
   ]
 })
