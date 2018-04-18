@@ -10,6 +10,7 @@ import {SearchPage} from "../search/search";
 import {SharePage} from "../share/share";
 
 
+
 @Component({
   templateUrl: 'tabs.html'
 })
