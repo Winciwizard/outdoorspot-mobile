@@ -13,23 +13,54 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
 
 
 
-   <ion-item *ngIf="user">
+  <ion-item >
 
 
-     <img [src]="'https://www.rallyetribe.fr/storage/' + user.user_image" item-right id="avatar" />
-
-     <h1 *ngIf="user">{{user.pseudo}}  </h1>
-
-     <br>
-
-     <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.id}}</ion-icon>
+    <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right id="avatar"   >
 
 
-   </ion-item>
+    <h1 *ngIf="user">{{user.prenom}} {{user.nom}}  </h1>
+
+
+
+  </ion-item>
+  <br>
+
+
+  <ion-item id="ddn">
+    <ion-icon name="calendar" aria-label="calendar"></ion-icon><label *ngIf="user">  Né le : 01 Mai 1969</label>
+  </ion-item>
+
+  <ion-item id="ville">
+    <ion-icon name="contacts" aria-label="contacts"></ion-icon><label *ngIf="user"> Description : {{user.description}}</label>
+  </ion-item>
+
+  <ion-item id="domicile">
+    <ion-icon name="home" aria-label="home"></ion-icon><label *ngIf="user"> Domicile : {{user.latitude}} - {{user.longitude}}</label>
+  </ion-item>
+
+  <ion-item id="etudes">
+    <ion-icon name="mail" aria-label="mail"></ion-icon><label *ngIf="user"> Email : {{user.email}}</label>
+  </ion-item>
+
+  <ion-item id="travail">
+    <ion-icon name="briefcase" aria-label="briefcase"></ion-icon><label *ngIf="user"> Travail : </label>
+  </ion-item>
+
+  <ion-item id="mes-spots">
+    <ion-grid *ngIf="myPost">
+      <ion-title>Last Post :</ion-title>
+      <ion-row>
+        <ion-col col-4 *ngFor="let post of myPost">
+          <img [src]="'https://www.rallyetribe.fr/storage/' + post.file" (click)="goToDetail(post)" />
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
 
 </ion-content>
