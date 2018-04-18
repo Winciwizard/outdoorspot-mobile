@@ -34,7 +34,7 @@ export class ProfilPage {
       this.userApiProvider.getUser(val).subscribe(data =>{
         console.log(data['data']);
         this.user = data['data'];
-      });
+        });
     })
   }
 
