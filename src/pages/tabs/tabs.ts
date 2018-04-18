@@ -7,6 +7,7 @@ import {Storage} from "@ionic/storage";
 import {NavController, NavParams} from "ionic-angular";
 import {SearchPage} from "../search/search";
 import {SharePage} from "../share/share";
+import {UserApiProvider} from "../../providers/user-api/user-api";
 
 
 @Component({
@@ -23,11 +24,14 @@ export class TabsPage {
 
   Lat: any;
   Long: any;
+  idUser: any;
+  body: any;
 
   constructor(
     public navCtlr: NavController,
     public navParams: NavParams,
-    private storage: Storage)
+    private storage: Storage,
+    private userApiProvider: UserApiProvider)
 
   {this.locate();}
   locate() {
@@ -35,7 +39,15 @@ export class TabsPage {
       this.Lat = position.coords.latitude;
       this.Long = position.coords.longitude;
 
-      console.log('hello');
+      this.storage.get('user_id').then((val) => {
+        this.idUser = val;
+        this.body = {
+          "latitude": this.Lat,
+          "longitude": this.Long
+        };
+        console.log(this.body);
+        this.userApiProvider.postUser(this.idUser, this.body).subscribe();
+      })
 
 
     }, err => console.log(err));
@@ -85,7 +97,7 @@ export class TabsPage {
 
     function onDeviceReady() {
       console.log("navigator.geolocation works well");
-  }
+      }
 
 }}
 
