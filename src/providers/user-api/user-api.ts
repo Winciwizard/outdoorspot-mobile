@@ -31,4 +31,8 @@ export class UserApiProvider {
     getUser(id): Observable<any> {
       return this.http.get(`${this.baseUrl}`+'/'+id);
     }
+
+    postUser(id, body): Observable<any> {
+    return this.http.patch(`${this.baseUrl}`+'/'+id, body);
+  }
 }
