@@ -19,7 +19,7 @@ import {SpotPage} from "../pages/spot/spot";
 import {SearchPage} from "../pages/search/search";
 import {UserProfilPage} from "../pages/user-profil/user-profil";
 import {IonicStorageModule} from "@ionic/storage";
-import { FriendApiProvider } from '../providers/friend-api/friend-api';
+import {FriendApiProvider } from '../providers/friend-api/friend-api';
 import {ContactPage} from "../pages/contact/contact";
 import {SharePage} from "../pages/share/share";
 

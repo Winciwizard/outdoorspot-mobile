@@ -11,6 +11,7 @@ import {UserProfilPage} from "../user-profil/user-profil";
 })
 export class ContactPage {
 
+  //Déclaration des différentes variables necessaires
   friends: any[];
   currentuser: any[];
   myFriends: any [];
@@ -18,39 +19,48 @@ export class ContactPage {
   dataUser: any[];
   body: any;
 
+  //Déclaration des classes de navigation, d'appels d'API et de stockage local
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private friendApiProvider: FriendApiProvider,
               private storage: Storage,
-              private userApiProvider: UserApiProvider) {
+              private userApiProvider: UserApiProvider)
+  {
     this.initializeFriend();
-    //this.getLatLong();
   }
 
 
   initializeFriend() {
 
-    //Récupération id user actif
+    //Récupération de l'id de l'utilisateur connecté
     this.storage.get('user_id')
-      .then((val) => {
+      .then((val) =>
+      {
         this.currentuser = val;
       })
-      .then((val) => {
-        //Récupération des données de l'utilisateur actif
-        return new Promise(resolve => {
+      //Récupération des données de l'utilisateur connecté
+      .then((val) =>
+      {
+        return new Promise(resolve =>
+        {
           this.userApiProvider.getUser(this.currentuser)
-            .subscribe(data => {
+            .subscribe(data =>
+            {
               this.dataUser = data['data'];
               resolve(this.dataUser);
             })
         })
       })
-      .then((val) => {
-        //récupération du tableau d'id des amis de l'utilisateur courrant
-        return new Promise(resolve => {
-          this.friendApiProvider.getfriend().subscribe(data => {
+      //récupération du tableau d'id des amis de l'utilisateur connecté
+      .then((val) =>
+      {
+        return new Promise(resolve =>
+        {
+          this.friendApiProvider.getfriend().subscribe(data =>
+          {
             this.friends = data;
-            this.myFriends = this.friends.filter((value) => {
+            this.myFriends = this.friends.filter((value) =>
+            {
               return (value.user_id === this.currentuser);
             });
             this.myFriends = this.myFriends[0]['friend'];
@@ -58,13 +68,16 @@ export class ContactPage {
           })
         })
       })
-      .then((val) => {
-        //Création du tableau d'objet des information des amis
-
+      //Création du tableau d'objet des information des amis
+      .then((val) =>
+      {
         let getAllUsers = [];
-        this.myFriends.forEach((id) => {
-          getAllUsers.push(new Promise( resolve => {
-            this.userApiProvider.getUser(id).subscribe((info) => {
+        this.myFriends.forEach((id) =>
+        {
+          getAllUsers.push(new Promise( resolve =>
+          {
+            this.userApiProvider.getUser(id).subscribe((info) =>
+              {
                 this.myFriendsList.push(info['data']);
                 resolve();
               }
@@ -73,19 +86,23 @@ export class ContactPage {
         });
         return Promise.all(getAllUsers);
       })
-      .then((val) => {
-        this.myFriendsList.sort((a,b) => {
+      //Triage de la liste d'amis par ordre de distance par rappor à l'utilisateur connecté
+      .then((val) =>
+      {
+        this.myFriendsList.sort((a,b) =>
+        {
           return this.getDistance(this.dataUser,a) - this.getDistance(this.dataUser,b);
-        })
+        });
         console.log(this.myFriendsList);
       });
   }
 
-
+  //Affiche une page du profil de l'utilisateur avec les données transférées grâce à la variable amis
   goToProfil(amis) {
     this.navCtrl.push(UserProfilPage, amis);
   }
 
+  //Fonction de calcul de distance entre deux coordonnées GPS
   getDistance(start, end) {
 
     let R = 6371;

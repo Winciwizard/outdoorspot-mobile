@@ -1,34 +1,17 @@
 <ion-header>
-
-
   <ion-toolbar color="dark">
-
-
-
     <ion-title>Contact</ion-title>
-
-
-
   </ion-toolbar>
-
-
 </ion-header>
 
-
+<!--Affichage de la liste des contact de l'utilisateur connecté-->
 <ion-content>
-
-<ion-list>
-  <ion-item *ngFor="let amis of myFriendsList"  (click)="goToProfil(amis)" >
-
-    {{amis.pseudo}}
-
-    <ion-avatar>
-      <img  [src]="'https://www.rallyetribe.fr/storage/' + amis.user_image"   item-right   >
-    </ion-avatar>
-
-
-
-  </ion-item>
-
-</ion-list>
+  <ion-list>
+    <ion-item *ngFor="let amis of myFriendsList"  (click)="goToProfil(amis)" >
+      {{amis.pseudo}}
+      <ion-avatar>
+        <img [src]="'https://www.rallyetribe.fr/storage/' + amis.user_image" item-right>
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
 </ion-content>
