@@ -13,19 +13,16 @@
 <br>
 <br>
 <ion-content padding>
-<ion-searchbar (ionInput)="getUser($event)" margin-top="200" ></ion-searchbar>
+  <ion-searchbar (ionInput)="getUser($event)" margin-top="200" ></ion-searchbar>
+  <ion-title padding>Result :</ion-title>
 
-
-
-<ion-title padding>Result :</ion-title>
-
-
-<ion-list>
-  <ion-item *ngFor="let user of users" (click)="goToProfil(user)">
-    {{ user.pseudo}}
-    <ion-avatar>
-    <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right   >
-    </ion-avatar>
-  </ion-item>
-</ion-list>
+  <!--Affichages des resultats de la recherche-->
+  <ion-list>
+    <ion-item *ngFor="let user of users" (click)="goToProfil(user)">
+      {{ user.pseudo}}
+      <ion-avatar>
+        <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right   >
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
 </ion-content>
