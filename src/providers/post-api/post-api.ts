@@ -28,4 +28,13 @@ export class PostApiProvider {
   getPosts(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+
+
+
+
+
+
+
+
 }
