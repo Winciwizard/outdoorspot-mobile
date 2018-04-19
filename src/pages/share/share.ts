@@ -18,10 +18,11 @@ export class SharePage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams) {
-  }
+    public navParams: NavParams)
+  {}
 
-  ionViewDidLoad() {
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad SharePage');
   }
 

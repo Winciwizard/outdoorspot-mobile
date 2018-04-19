@@ -14,14 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'spot.html',
 })
 export class SpotPage {
+
+  //Déclaration de la variable post
   post: any;
 
+  //Déclaration des classes de navigation
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams
   ) {}
 
-  ionViewDidLoad() {
+  //Fonction de chargement de page, intégre les donnés de data dans la variable post
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad SpotPage');
     this.post = this.navParams.data;
   }
