@@ -4,7 +4,6 @@ import {PostApiProvider} from "../../providers/post-api/post-api";
 import {SpotPage} from "../spot/spot";
 import {Storage} from "@ionic/storage";
 import {LoginPage} from "../login/login";
-import {TabsPage} from "../tabs/tabs";
 
 /**
  * Generated class for the FluxPage page.
@@ -14,14 +13,18 @@ import {TabsPage} from "../tabs/tabs";
  */
 
 @IonicPage()
-@Component({
+@Component(
+  {
   selector: 'page-flux',
   templateUrl: 'flux.html',
 })
-export class FluxPage {
+export class FluxPage
+{
+
+  //Déclaration de la variable tableau de posts
   posts = [];
 
-
+  //Déclaration des classes de navigation, d'appels d'API et de stockage local
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,19 +33,27 @@ export class FluxPage {
     private app: App
   ) {}
 
-  ionViewDidLoad() {
+  //Fonction de chargement de la page, chargements de l'ensemble des données des posts
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad FluxPage');
-    this.postApiProvider.getPosts().subscribe(data => {
+    this.postApiProvider.getPosts().subscribe(data =>
+    {
       this.posts = data['data'];
     });
   }
 
-  goToDetail(post) {
+  //Fonction qui permet de visualiser un page de détail d'un post et transferant les données grâce à la variable post
+  goToDetail(post)
+  {
     this.navCtrl.push(SpotPage, post);
   }
 
-  goLogout(){
-    this.storage.set('user_id',null).then((val) => {
+  //Fonction qui permet à l'utilisateur de se déconnecter
+  goLogout()
+  {
+    this.storage.set('user_id',null).then((val) =>
+    {
       console.log(val);
       this.app.getRootNav().setRoot(LoginPage);
     })

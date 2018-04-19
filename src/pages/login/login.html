@@ -5,28 +5,22 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-<ion-navbar>
-  <ion-title>Connectez-vous</ion-title>
-</ion-navbar>
+  <ion-navbar>
+    <ion-title>Connectez-vous</ion-title>
+  </ion-navbar>
 </ion-header>
 
+<!--Affichage du formulaire de connexion-->
 <ion-content padding>
-<ion-list id="inputEmail">
-
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input [(ngModel)]="email" type="text"></ion-input>
-  </ion-item>
-
-</ion-list>
-
+  <ion-list id="inputEmail">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [(ngModel)]="email" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
   <div padding>
     <button ion-button color="dark" (click)="goToFlux()" id="connectButton">Connexion</button>
   </div>
-
-
-
-
 </ion-content>
 
 
