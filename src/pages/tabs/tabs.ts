@@ -16,43 +16,52 @@ import {UserApiProvider} from "../../providers/user-api/user-api";
 })
 export class TabsPage {
 
-
+  //Variable qui servent à la navigation sur la tab
   tab1Root = FluxPage;
   tab2Root = ContactPage;
   tab3Root = SharePage;
   tab4Root = SearchPage;
   tab5Root = ProfilPage;
 
+  //Déclaration des variables
   Lat: any;
   Long: any;
   idUser: any;
   body: any;
 
+  //Déclaration des classes de navigation, d'appels d'API et de stockage local. Appel la fonction locate()
   constructor(
     public navCtlr: NavController,
     public navParams: NavParams,
     private storage: Storage,
     private userApiProvider: UserApiProvider)
+  {
+    this.locate();
+  }
 
-  {this.locate();}
+  //Récupération des coordonnées GPS de la personne connecté via le GPS du téléphone
   locate() {
     navigator.geolocation.getCurrentPosition(position => {
       this.Lat = position.coords.latitude;
       this.Long = position.coords.longitude;
 
-      this.storage.get('user_id').then((val) => {
+      //Stockage des coordonnées dans la base de données via l'API LARAVEL
+      this.storage.get('user_id').then((val) =>
+      {
         this.idUser = val;
-        this.body = {
+        this.body =
+          {
           "latitude": this.Lat,
           "longitude": this.Long
-        };
+          };
         console.log(this.body);
         this.userApiProvider.postUser(this.idUser, this.body).subscribe();
       })
 
-
+    //En cas de succes
     }, err => console.log(err));
-    var onSuccess = function (position) {
+    var onSuccess = function (position)
+    {
       console.log('Latitude: ' + position.coords.latitude + '\n' +
         'Longitude: ' + position.coords.longitude + '\n' +
         'Altitude: ' + position.coords.altitude + '\n' +
@@ -64,31 +73,38 @@ export class TabsPage {
 
     };
 
-    function onError(error) {
+    //En cas d'erreur
+    function onError(error)
+    {
       alert('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
     }
 
-    var intervalID;
+    let intervalID;
 
-    function geolocAgain() {
+    //Fonction de répétition de récupération des coordoonnées GPS de façon récurante
+    function geolocAgain()
+    {
       intervalID = setInterval(nav, 10000);
     }
 
-    function nav() {
+    //Fonction de stockage en base de donnée
+    function nav()
+    {
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
-
     }
-    geolocAgain();
 
+    geolocAgain();
   }
 
-  ionViewDidLoad() {
-
+  ionViewDidLoad()
+  {
     console.log('ionViewDidLoad Tabs');
-    //stockage user_id
-    this.storage.get('user_id').then((val) => {
-      if(val == null){
+    //Stockage user_id
+    this.storage.get('user_id').then((val) =>
+    {
+      if(val == null)
+      {
         this.navCtlr.setRoot(LoginPage);
       }
     })
@@ -96,9 +112,10 @@ export class TabsPage {
     //Geolocalisation
     document.addEventListener("deviceready", onDeviceReady, false);
 
-    function onDeviceReady() {
+    function onDeviceReady()
+    {
       console.log("navigator.geolocation works well");
-      }
-
-}}
+    }
+  }
+}
 
