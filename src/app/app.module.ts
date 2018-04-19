@@ -21,6 +21,7 @@ import {UserProfilPage} from "../pages/user-profil/user-profil";
 import {IonicStorageModule} from "@ionic/storage";
 import { FriendApiProvider } from '../providers/friend-api/friend-api';
 import {ContactPage} from "../pages/contact/contact";
+import {SharePage} from "../pages/share/share";
 
 
 
@@ -32,7 +33,8 @@ import {ContactPage} from "../pages/contact/contact";
     SpotPage,
     SearchPage,
     UserProfilPage,
-    ContactPage
+    ContactPage,
+    SharePage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import {ContactPage} from "../pages/contact/contact";
     SpotPage,
     SearchPage,
     UserProfilPage,
-    ContactPage
+    ContactPage,
+    SharePage
   ],
   providers: [
     StatusBar,
