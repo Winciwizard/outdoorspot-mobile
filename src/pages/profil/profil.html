@@ -72,36 +72,50 @@
 
         <br>
 
-          <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin">  {{user.id}}</ion-icon>
-        <h1 *ngIf="user">{{user.pseudo}}  </h1>
+          <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin"></ion-icon>
+        <label> Les papéteries  </label><!--<label *ngIf="user"> {{user.pseudo}}  </label>-->
 
       </ion-item>
 <br>
 
 
   <ion-item id="ddn">
-    <ion-icon name="calendar" aria-label="calendar"></ion-icon><label *ngIf="user">  Né le : 01 Mai 1969</label>
+    <ion-icon name="calendar" aria-label="calendar">
+
+    </ion-icon><label class="labelTitle"> Né(e) le : </label>
+    <label *ngIf="user">  29 février 1985</label>
   </ion-item>
 
   <ion-item id="ville">
-    <ion-icon name="contacts" aria-label="contacts"></ion-icon><label *ngIf="user"> Description : {{user.description}}</label>
+    <ion-icon name="contacts" aria-label="contacts"></ion-icon>
+    <label class="labelTitle" > Description : </label>
+    <label *ngIf="user">{{user.description}}</label>
   </ion-item>
 
   <ion-item id="domicile">
-    <ion-icon name="home" aria-label="home"></ion-icon><label *ngIf="user"> Domicile : {{user.latitude}} - {{user.longitude}}</label>
+    <ion-icon name="home" aria-label="home"></ion-icon>
+    <label class="labelTitle"> Domicile : </label>
+    <label  *ngIf="user" >{{user.latitude}} - {{user.longitude}}</label>
   </ion-item>
 
   <ion-item id="etudes">
-    <ion-icon name="mail" aria-label="mail"></ion-icon><label *ngIf="user"> Email : {{user.email}}</label>
+    <ion-icon name="mail" aria-label="mail">
+
+    </ion-icon><label class="labelTitle" > Email : </label>
+    <label *ngIf="user">{{user.email}}</label>
   </ion-item>
 
   <ion-item id="travail">
-    <ion-icon name="briefcase" aria-label="briefcase"></ion-icon><label *ngIf="user"> Travail : Testeur à L' ANPE</label>
+    <ion-icon name="briefcase" aria-label="briefcase">
+
+    </ion-icon>
+    <label class="labelTitle" > Travail : </label>
+    <label *ngIf="user">Testeur à L' ANPE</label>
   </ion-item>
 
-  <ion-item id="mes-spots">
-    <h2 *ngIf="user">Mes Derniers Posts</h2>
-  </ion-item>
+  <!--<ion-item id="mes-spots">-->
+    <!--<h2 *ngIf="user">Mes Derniers Posts</h2>-->
+  <!--</ion-item>-->
 
 
 
