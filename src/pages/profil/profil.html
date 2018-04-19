@@ -8,71 +8,28 @@
 
 
 <ion-header>
-
-
   <ion-toolbar color="dark">
-
-
-
     <ion-title>Mon profil</ion-title>
-
-
-
   </ion-toolbar>
-
-
 </ion-header>
 
-<!--<ion-menu [content]="content">-->
-  <!--<ion-content >-->
-
-    <!--<ion-list>-->
-      <!--<button ion-item (click)="openPage(homePage)">-->
-        <!--Flux-->
-      <!--</button>-->
-      <!--<button ion-item (click)="openPage(friendsPage)">-->
-        <!--Friends-->
-      <!--</button>-->
-      <!--<button ion-item (click)="openPage(eventsPage)">-->
-        <!--Posts-->
-      <!--</button>-->
-      <!--<button ion-item (click)="closeMenu()">-->
-        <!--Close Menu-->
-      <!--</button>-->
-    <!--</ion-list>-->
-
-  <!--</ion-content>-->
-
-<!--</ion-menu>-->
-
-
-<ion-nav id="nav" #content [root]="tab5Root"></ion-nav>
-
-
+<!--Affichages des informations de l'utilisateur-->
 <ion-content >
 
+  <ion-item >
+    <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right id="avatar"   >
+    <h1 *ngIf="user">{{user.prenom}} {{user.nom}}  </h1>
+    <br>
+    <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin"></ion-icon>
+    <label> Les papéteries  </label><!--<label *ngIf="user"> {{user.pseudo}}  </label>-->
+   </ion-item>
 
-      <ion-item >
-
-
-          <img  [src]="'https://www.rallyetribe.fr/storage/' + user.user_image"   item-right id="avatar"   >
-
-
-          <h1 *ngIf="user">{{user.prenom}} {{user.nom}}  </h1>
-
-        <br>
-
-          <ion-icon class="icon icon-md ion-md-pin" name="pin" role="img" aria-label="pin"></ion-icon>
-        <label> Les papéteries  </label><!--<label *ngIf="user"> {{user.pseudo}}  </label>-->
-
-      </ion-item>
-<br>
-
+  <br>
 
   <ion-item id="ddn">
     <ion-icon name="calendar" aria-label="calendar">
-
-    </ion-icon><label class="labelTitle"> Né(e) le : </label>
+    </ion-icon>
+    <label class="labelTitle"> Né(e) le : </label>
     <label *ngIf="user">  29 février 1985</label>
   </ion-item>
 
@@ -90,24 +47,16 @@
 
   <ion-item id="etudes">
     <ion-icon name="mail" aria-label="mail">
-
     </ion-icon><label class="labelTitle" > Email : </label>
     <label *ngIf="user">{{user.email}}</label>
   </ion-item>
 
   <ion-item id="travail">
     <ion-icon name="briefcase" aria-label="briefcase">
-
     </ion-icon>
     <label class="labelTitle" > Travail : </label>
     <label *ngIf="user">Testeur à L' ANPE</label>
   </ion-item>
-
-  <!--<ion-item id="mes-spots">-->
-    <!--<h2 *ngIf="user">Mes Derniers Posts</h2>-->
-  <!--</ion-item>-->
-
-
 
   <ion-item id="mes-spots">
     <ion-grid *ngIf="myPost">
@@ -119,7 +68,6 @@
       </ion-row>
     </ion-grid>
   </ion-item>
-
 
 </ion-content>
 
