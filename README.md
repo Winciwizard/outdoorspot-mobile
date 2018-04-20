@@ -27,3 +27,11 @@ Cloner le projet depuis GITHUB :
 Lancer le server ionic :
 
 `$ ionic serve --lab`
+
+## CONTRIBUTION 
+
+* Sandrine
+* Igor
+* Théo
+* Samir
+* Vincenr
