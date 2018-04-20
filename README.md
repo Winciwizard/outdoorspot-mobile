@@ -34,4 +34,4 @@ Lancer le server ionic :
 * Igor
 * Théo
 * Samir
-* Vincenr
+* Vincent
