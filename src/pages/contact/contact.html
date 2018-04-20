@@ -8,7 +8,7 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let amis of myFriendsList"  (click)="goToProfil(amis)" >
-      {{amis.pseudo}}
+      <b>{{amis.pseudo}}</b> est à <b>{{(getDistance(dataUser,amis)).toFixed(0)}} km</b>
       <ion-avatar>
         <img [src]="'https://www.rallyetribe.fr/storage/' + amis.user_image" item-right>
       </ion-avatar>
