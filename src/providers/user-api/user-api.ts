@@ -13,26 +13,32 @@ import {Observable} from "rxjs/Observable";
 @Injectable()
 export class UserApiProvider {
 
+  //Déclaration de la variable de l'adresse de l'api users
   private  baseUrl: string = "https://proxy.apidae.net/www.rallyetribe.fr/api/users";
 
   users: any [];
 
-  constructor(  private readonly http: HttpClient,
-                private readonly platform: Platform) {
+  //Déclaration de la variable de l'adresse de l'api users
+  constructor(private readonly http: HttpClient)
+  {
     console.log('Hello UserApiProvider Provider');
-    // if (this.platform.is("cordova") && this.platform.is("android")) {
-    //   this.baseUrl = "/android_asset/www/assets/api/users.json";
-    // }
   }
-    getUsers(): Observable<any> {
-      return this.http.get(`${this.baseUrl}`);
-    }
 
-    getUser(id): Observable<any> {
-      return this.http.get(`${this.baseUrl}`+'/'+id);
-    }
+  //Récupération du JSON de tout les utilisateurs
+  getUsers(): Observable<any>
+  {
+    return this.http.get(`${this.baseUrl}`);
+  }
 
-    postUser(id, body): Observable<any> {
+  //Récupération du JSON d'un utilisateur
+  getUser(id): Observable<any>
+  {
+    return this.http.get(`${this.baseUrl}`+'/'+id);
+  }
+
+  //Mise à jour par JSON d'un utilisateurs
+  postUser(id, body): Observable<any>
+  {
     return this.http.patch(`${this.baseUrl}`+'/'+id, body);
   }
 }

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Platform} from "ionic-angular";
 import {Observable} from "rxjs/Observable";
 
 /*
@@ -11,20 +10,19 @@ import {Observable} from "rxjs/Observable";
 */
 @Injectable()
 export class PostApiProvider {
+
+  //Déclaration de la variable de l'adresse de l'api posts
   private baseUrl: string = "https://proxy.apidae.net/www.rallyetribe.fr/api/posts";
 
   posts: any[];
 
-  constructor(
-    private readonly http: HttpClient,
-    private readonly platform: Platform,
-    ) {
+  //Déclaration des classes d'appels d'API
+  constructor(private readonly http: HttpClient)
+  {
     console.log('Hello PostApiProvider Provider');
-    // if (this.platform.is("cordova") && this.platform.is("android")) {
-    //   this.baseUrl = "/android_asset/www/assets/api/posts.json";
-    // }
   }
 
+  //Récupération du JSON de tout les posts
   getPosts(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
